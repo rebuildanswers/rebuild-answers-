@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method — how every number is built | Rebuild Answers</title>
+<meta name="description" content="The full scoring methodology for share of answer and agent surface, including the weighting, the 2-of-3 reliability line, and what it deliberately does not measure.">
+<link rel="canonical" href="https://rebuildanswers.com/method.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rebuild Answers">
+<meta property="og:title" content="Method — how every number is built">
+<meta property="og:description" content="The full scoring methodology for share of answer and agent surface, including the weighting, the 2-of-3 reliability line, and what it deliberately does not measure.">
+<meta property="og:url" content="https://rebuildanswers.com/method.html">
+<meta property="og:image" content="https://rebuildanswers.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rebuild Answers — Everyone scores your HTML. We ask the engines.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Method — how every number is built">
+<meta name="twitter:description" content="The full scoring methodology for share of answer and agent surface, including the weighting, the 2-of-3 reliability line, and what it deliberately does not measure.">
+<meta name="twitter:image" content="https://rebuildanswers.com/og.png">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<!-- ===================================================================
+     PLACEHOLDERS: the cal.com booking URL does not exist yet, and
+     hello@rebuildanswers.com must be a real mailbox. Run ./rename.sh to change
+     the brand name or domain across every file at once.
+     =================================================================== -->
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html">Rebuild<span>&nbsp;Answers</span></a>
+    <nav>
+      <a href="answer-index.html">Answer Index</a>
+      <a href="method.html">Method</a>
+      <a href="work.html">How we work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="https://github.com/rebuildanswers/answer-layer">Source</a>
+    </nav>
+    <a class="btn sm" href="https://cal.com/rebuildanswers/20min">Book a call</a>
+  </div>
+</header>
+
+<main>
+
+<div class="wrap page-head">
+  <p class="crumb"><a href="index.html">Rebuild Answers</a> / Method</p>
+  <h1>How every number on this site is built</h1>
+  <p class="lede">
+    Two scored things: share of answer, and agent surface. Both are opinions expressed as
+    arithmetic. This page says whose opinion, and why — so you can argue with the method
+    instead of the number.
+  </p>
+  <p class="mono-sm">Also published as <a href="https://github.com/rebuildanswers/answer-layer/blob/main/answer-layer/docs/scoring.md">scoring.md</a> in the open-source repo · last revised 21 Sep 2026</p>
+</div>
+
+<section>
+  <div class="wrap narrow">
+    <p class="eyebrow">Share of answer</p>
+    <h2>Appearances are weighted by position, not counted flat</h2>
+    <p>
+      Being named as <em>the</em> recommendation and being listed fourth are not the same
+      business outcome, so they don't score the same.
+    </p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Position</th><th>Weight</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td><code>first</code> — named as the recommendation</td><td class="num">1.0</td><td>The answer. Most readers stop here.</td></tr>
+          <tr><td><code>listed</code> — one option among several</td><td class="num">0.5</td><td>Real, but you're the alternative.</td></tr>
+          <tr><td><code>mention_only</code> — referenced, not offered</td><td class="num">0.2</td><td>Visible, not considered.</td></tr>
+          <tr><td><code>absent</code></td><td class="num">0</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">
+      SoA = Σ(weight per appearance) ÷ (prompts × runs)
+    </p>
+    <p>
+      The 0.5 for <code>listed</code> is a judgement call. You could argue 0.4 or 0.6 and we
+      wouldn't fight you. What isn't arguable is that it has to sit below <code>first</code>
+      and above <code>mention_only</code>.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <h2>Presence is a fraction, never a tick</h2>
+    <p>
+      These systems are non-deterministic. A brand can appear in run 1 and vanish in run 2 for
+      the same prompt. One run is close to worthless as evidence, so every prompt runs three
+      times and you get the fraction.
+    </p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Stability</th><th>What it means</th><th>What to do</th></tr></thead>
+        <tbody>
+          <tr><td class="num">3/3</td><td>You own this answer</td><td>Protect it. Watch for framing drift.</td></tr>
+          <tr><td class="num">2/3</td><td>Reliable but not locked</td><td>Fine. Don't spend here.</td></tr>
+          <tr><td class="num">1/3</td><td>Pulled in by luck</td><td><strong>Cheapest fix on your list.</strong> Small changes will hold it.</td></tr>
+          <tr><td class="num">0/3</td><td>Invisible</td><td>The work queue.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Collapsing 1/3 and 3/3 into a green "present" tick throws away the most actionable column
+      in the whole dataset. Most tools do exactly that.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <h2>Share of answer is share of <em>your prompt set</em></h2>
+    <p>
+      Whoever picks the prompts picks the number. This is the single biggest integrity risk in
+      this category and it belongs at the top of the page, not in a footnote.
+    </p>
+    <p>Add ten easy prompts and the line goes up while nothing real changed. So:</p>
+    <ul>
+      <li>The prompt set is <strong>frozen</strong> for the engagement.</li>
+      <li>If it has to change, it's versioned, both are kept, and both numbers are reported
+          during the transition month.</li>
+      <li>Every report states the set, the version, the date, and the engine queried.</li>
+    </ul>
+    <p>
+      An agency that quietly reshuffles its prompt universe to make the trendline go up is
+      running a scam with extra steps. The client works it out eventually, and then nothing
+      that agency ever measured is believed again.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <h2>We say which engine, every time</h2>
+    <p>
+      Our probe currently queries one engine: Claude with server-side web search. That is a
+      real answer engine and a reasonable proxy for the others, and it is <strong>not
+      ChatGPT</strong>.
+    </p>
+    <p>
+      What generalizes between engines is the <em>source layer</em> — which domains get
+      retrieved — because they're all drinking from a similar web. What doesn't generalize is
+      exact phrasing, ordering, and who gets named first. So cartel findings travel; position
+      findings don't. No report of ours says "AI search" when it means one engine.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="narrow">
+      <p class="eyebrow">Agent surface</p>
+      <h2>100 points, and why they're split that way</h2>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Component</th><th>Points</th><th>Reasoning</th></tr></thead>
+        <tbody>
+          <tr><td>Content without JS</td><td class="num">30</td><td>Everything else is theoretical if a raw fetch returns a shell. Most common failure and the most consequential.</td></tr>
+          <tr><td>Machine-readable facts</td><td class="num">20</td><td>The gap between describable and actionable. An agent can't quote a price it can't parse — and neither can a model.</td></tr>
+          <tr><td>llms.txt quality</td><td class="num">15</td><td>Graded on content, not presence. A 400-link dump scores near zero.</td></tr>
+          <tr><td>Task completability</td><td class="num">15</td><td>Can an agent finish signup, booking or checkout, or does step 4 need a human.</td></tr>
+          <tr><td>Service discovery</td><td class="num">10</td><td>Conditional. Dropped for non-API sites, and the rest rescaled.</td></tr>
+          <tr><td>Policy coherence</td><td class="num">10</td><td>Whether your crawler policy matches your stated business goal.</td></tr>
+          <tr><td><em>Bonus:</em> markdown negotiation</td><td class="num">+5</td><td>Early capability. Never a deduction.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="narrow faq">
+      <h3>Why 30 points on the JavaScript check?</h3>
+      <p>
+        Because it's the one that's actually true about most sites and nobody wants to hear it.
+        A client will happily discuss llms.txt for an hour and go quiet when you show them their
+        homepage renders 40 words to a plain HTTP client.
+      </p>
+      <p>
+        It also gets worse as agents matter more. A crawler that gets a shell comes back later.
+        An agent working against a task budget does not.
+      </p>
+
+      <h3>What happens when a check doesn't apply?</h3>
+      <p>
+        It's dropped and the remainder is rescaled to 100 — and the report says which ones were
+        dropped, inline, in the score line. A local service business with no API shouldn't be
+        marked down for lacking an MCP card, and shouldn't have to guess whether it was.
+      </p>
+
+      <h3>What's deliberately not scored?</h3>
+      <p>
+        Content Signals keys we don't recognise are notes, never errors — the IETF draft is
+        still moving, and the spec author's own site uses a key that isn't in the published set.
+        Penalising a site for tracking a draft standard faster than the standard does is bad
+        measurement. Markdown negotiation is bonus-only for the same reason.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <p class="eyebrow">Limits</p>
+    <h2>What none of this measures</h2>
+    <p>
+      Volume. The engines do not publish how many people ask any given prompt.
+    </p>
+    <p>
+      Being precise here matters, because the big platforms have a real answer to it. Ahrefs'
+      Brand Radar and Semrush's AI Visibility Toolkit both run prompt databases in the
+      130M–260M range and model demand from observed search behaviour — "search-backed prompts,
+      not synthetic," in Ahrefs' phrasing. That is a legitimate methodology and it is not
+      something we can match at our scale.
+    </p>
+    <p>
+      What it is not is <em>measured</em> prompt volume. It's demand inferred from adjacent
+      search data, and the inference is load-bearing. So our honest position is narrower than
+      "nobody knows": nobody observes it directly, large platforms model it from search demand
+      at scale, and we don't model it at all.
+    </p>
+    <p>
+      We build prompt sets from first-party evidence instead — your sales calls, lost-deal
+      notes, support tickets, community threads — and cite the evidence rather than a number.
+      <em>"14 distinct Reddit threads in six months, near-identical phrasing"</em> is a claim
+      you can go and verify. It is deliberately a smaller claim than <code>1,200/mo</code>, and
+      a checkable one.
+    </p>
+    <p>Different instrument, not a better one. It's a weaker-looking claim and a stronger real one.</p>
+  </div>
+</section>
+
+<section style="border-bottom:0">
+  <div class="wrap narrow">
+    <p class="eyebrow">Next step</p>
+    <h2>Want this run on your site?</h2>
+    <p class="lede" style="margin-bottom:0">The method is public so you can interrogate it before you pay for it. If it holds up, the next step is a read.</p>
+    <div class="btn-row">
+      <a class="btn" href="mailto:hello@rebuildanswers.com?subject=Read%20request&amp;body=Domain%3A%20%0ACompetitors%20that%20matter%3A%20%0AWhat%20we%20sell%2C%20in%20a%20sentence%3A%20%0A">Get a read on your site</a>
+      <a class="btn ghost" href="https://cal.com/rebuildanswers/20min">Book 20 minutes</a>
+    </div>
+    <p class="mono-sm" style="margin-top:1.4rem">hello@rebuildanswers.com · Florida</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap narrow">
+    <p>
+      Rebuild Answers · Florida · <a href="mailto:hello@rebuildanswers.com">hello@rebuildanswers.com</a><br>
+      Tooling: <a href="https://github.com/rebuildanswers/answer-layer">Answer Layer</a>, MIT.<br>
+      <a href="index.html">Home</a> ·
+      <a href="answer-index.html">Answer Index</a> ·
+      <a href="method.html">Method</a> ·
+      <a href="work.html">How we work</a> ·
+      <a href="pricing.html">Pricing</a>
+    </p>
+    <p class="byline">
+      Written by the people who do the work. No JavaScript is required to read anything on
+      this site — that's 30 of the 100 points on our own audit, and most sites lose it.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

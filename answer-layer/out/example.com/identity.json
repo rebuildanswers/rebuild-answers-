@@ -1,0 +1,39 @@
+{
+  "_comment": "Written by hand, before the first probe. Half of all bad harvests are a matching problem, not a visibility problem — this file is what prevents that.",
+
+  "brand": "Example",
+
+  "aliases": [
+    "Example Inc",
+    "Example App",
+    "ExampleHQ"
+  ],
+  "_aliases_note": "Every spelling a model might use. Include the legal name, the social handle, and any old name people still use. Do NOT include generic words — an alias of 'Example' plus an alias of 'App' will match half the internet.",
+
+  "domains": [
+    "https://example.com",
+    "https://docs.example.com",
+    "https://blog.example.com"
+  ],
+  "_domains_note": "Used for the self-citation rate. Include docs and blog subdomains — being cited via your own docs still counts as owning the source.",
+
+  "products": [
+    "Example Core",
+    "Example Sync"
+  ],
+  "_products_note": "Product names distinct from the brand name. A model may recommend the product without naming the company.",
+
+  "competitors": [
+    "Acme Suite",
+    "Bolt Workflow",
+    "Corvid",
+    "Dropline"
+  ],
+  "_competitors_note": "The 3-6 that actually come up in deals. Not the aspirational list. If sales doesn't recognise a name here, take it out.",
+
+  "known_confusions": [
+    "Example Systems (unrelated hardware company, Ohio)",
+    "example.org (unrelated nonprofit)"
+  ],
+  "_known_confusions_note": "Same-name entities the model may fuse you with. Feeds hallucination-watch's 'conflated' class."
+}

@@ -1,0 +1,58 @@
+# Rebuild Answers
+
+> We measure whether AI answer engines actually recommend a brand, by asking them, and then
+> fix what's losing. Most tools in this category infer visibility from page structure; we run
+> the client's real buyer questions through live engines and record the answers verbatim.
+
+Rebuild Answers is a generative engine optimization agency in Florida.
+
+**What we are not:** not an SEO agency in the traditional sense — we do not sell link building,
+keyword rankings, or content volume. Not a software product; the tooling is free and open
+source and you are welcome to run it without us. Not a reseller of any third-party AI
+visibility dashboard.
+
+Prices are public and stated as numbers, not "contact us": $2,400 one-off, $5,800/mo retainer,
+$3,200 agent-surface audit. As of 20 August 2026.
+
+## Start here
+
+- [What we do and how the numbers work](https://rebuildanswers.com/method.html): the full scoring
+  methodology, including what it doesn't measure and why.
+- [Pricing](https://rebuildanswers.com/pricing.html): three engagements, public numbers, and why nobody
+  starts on the retainer.
+- [How we work](https://rebuildanswers.com/work.html): the 90-day sequence, and the things we refuse to do.
+
+## Machine-readable
+
+- [pricing.json](https://rebuildanswers.com/pricing.json): schema.org OfferCatalog, current prices.
+- [sitemap.xml](https://rebuildanswers.com/sitemap.xml)
+
+## Original data
+
+- [The Answer Index](https://rebuildanswers.com/answer-index.html): standing share-of-answer readings by
+  category, published with the prompt set, run count, engine, and date.
+  **Status as of 22 September 2026: no readings published yet.** The page is live and states
+  this plainly rather than showing invented numbers. First entries follow the first published
+  read.
+
+## Tooling
+
+- [Answer Layer on GitHub](https://github.com/rebuildanswers/answer-layer): MIT. The seven agents
+  and three scripts we run engagements on.
+- [Scoring methodology](https://github.com/rebuildanswers/answer-layer/blob/main/answer-layer/docs/scoring.md)
+
+## Contact
+
+- hello@rebuildanswers.com — send a domain and the competitors that matter.
+
+## Facts
+
+- Florida, United States.
+- Engagements run against a frozen, versioned prompt set. Share of answer is share of that set.
+- Probes run 3x per prompt against one named engine, currently claude-opus-5 with web search.
+- Every engagement opens with the one-off read. Nobody starts on the retainer.
+- The 6-month minimum applies to the retainer only, because off-site work takes 3-6 months
+  to show up in answers.
+- We do not model prompt volume. Ahrefs and Semrush model it from search demand at a scale we
+  cannot match; we build prompt sets from first-party evidence and cite the evidence instead.
+- We do not astroturf, buy reviews, or suppress accurate criticism.

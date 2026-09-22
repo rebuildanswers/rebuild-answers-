@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Rebuild Answers",
+  "url": "https://rebuildanswers.com",
+  "description": "Generative engine optimization measured against live AI answer engines rather than inferred from page structure.",
+  "areaServed": "Worldwide",
+  "priceCurrency": "USD",
+  "updated": "2026-08-20",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Engagements",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "The read",
+        "price": "2400",
+        "priceCurrency": "USD",
+        "billingDuration": "one-time",
+        "deliveryLeadTime": "P2W",
+        "description": "30-40 prompt universe, full 3-run probe, share of answer vs named competitors, citation cartel, misinformation report."
+      },
+      {
+        "@type": "Offer",
+        "name": "Read and fix",
+        "price": "5800",
+        "priceCurrency": "USD",
+        "billingDuration": "P1M",
+        "minimumTerm": "P6M",
+        "description": "Monthly re-probe against a frozen prompt set, 8-12 paste-ready rewrites per month, schema, 90-day earned-presence execution, monthly diff."
+      },
+      {
+        "@type": "Offer",
+        "name": "Agent surface",
+        "price": "3200",
+        "priceCurrency": "USD",
+        "billingDuration": "one-time",
+        "deliveryLeadTime": "P2W",
+        "description": "Scored audit of whether AI agents can read, parse and transact with the site. JS-dependency diff, machine-readable facts, service discovery, task-path walkthrough, crawler policy review."
+      }
+    ]
+  }
+}

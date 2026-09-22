@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rebuild Answers — we measure whether AI actually recommends you</title>
+<meta name="description" content="Most AI search tools score your HTML and infer visibility. We ask the engines your buyers' questions and write down what came back. The method is open source.">
+<link rel="canonical" href="https://rebuildanswers.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rebuild Answers">
+<meta property="og:title" content="Rebuild Answers — we measure whether AI actually recommends you">
+<meta property="og:description" content="Most AI search tools score your HTML and infer visibility. We ask the engines your buyers' questions and write down what came back. The method is open source.">
+<meta property="og:url" content="https://rebuildanswers.com/">
+<meta property="og:image" content="https://rebuildanswers.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rebuild Answers — Everyone scores your HTML. We ask the engines.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rebuild Answers — we measure whether AI actually recommends you">
+<meta name="twitter:description" content="Most AI search tools score your HTML and infer visibility. We ask the engines your buyers' questions and write down what came back. The method is open source.">
+<meta name="twitter:image" content="https://rebuildanswers.com/og.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://rebuildanswers.com/#org","name":"Rebuild Answers",
+  "url":"https://rebuildanswers.com","email":"hello@rebuildanswers.com",
+  "description":"Generative engine optimization measured against live AI answer engines rather than inferred from page structure.",
+  "address":{"@type":"PostalAddress","addressRegion":"FL","addressCountry":"US"},
+  "sameAs":["https://github.com/rebuildanswers/answer-layer"]},
+ {"@type":"Service","name":"The read","provider":{"@id":"https://rebuildanswers.com/#org"},
+  "offers":{"@type":"Offer","price":"2400","priceCurrency":"USD","availability":"https://schema.org/InStock"}},
+ {"@type":"Service","name":"Read and fix","provider":{"@id":"https://rebuildanswers.com/#org"},
+  "offers":{"@type":"Offer","price":"5800","priceCurrency":"USD","availability":"https://schema.org/InStock"}},
+ {"@type":"Service","name":"Agent surface","provider":{"@id":"https://rebuildanswers.com/#org"},
+  "offers":{"@type":"Offer","price":"3200","priceCurrency":"USD","availability":"https://schema.org/InStock"}}
+]}
+</script>
+
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<!-- ===================================================================
+     TWO PLACEHOLDERS TO SWAP BEFORE LAUNCH. Both repeat on every page.
+       1. BOOKING URL   — every "Book a call"/"Book 20 minutes" href.
+                          Currently a cal.com path that does NOT exist yet.
+       2. hello@rebuildanswers.com — must be a mailbox that actually receives mail.
+     The mailto CTAs work the moment #2 is real; #1 needs an account.
+     To change the brand name or domain everywhere, run ./rename.sh
+     =================================================================== -->
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html">Rebuild<span>&nbsp;Answers</span></a>
+    <nav>
+      <a href="answer-index.html">Answer Index</a>
+      <a href="method.html">Method</a>
+      <a href="work.html">How we work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="https://github.com/rebuildanswers/answer-layer">Source</a>
+    </nav>
+    <a class="btn sm" href="https://cal.com/rebuildanswers/20min">Book a call</a>
+  </div>
+</header>
+
+<main>
+
+<div class="wrap hero">
+  <p class="eyebrow">Generative engine optimization · Florida</p>
+  <h1>Everyone scores your HTML. <span class="mark">We ask the engines.</span></h1>
+  <p class="lede">
+    Every AI-search tool on the market infers your visibility from the shape of your pages —
+    word counts, pronoun density, schema completeness. Useful. Not the same as evidence.
+    We run your buyers' actual questions through live answer engines and write down what came
+    back, verbatim, with sources. Then we fix what's losing.
+  </p>
+
+  <div class="btn-row">
+    <a class="btn" href="mailto:hello@rebuildanswers.com?subject=Read%20request&amp;body=Domain%3A%20%0ACompetitors%20that%20matter%3A%20%0AWhat%20we%20sell%2C%20in%20a%20sentence%3A%20%0A">Get a read on your site</a>
+    <a class="btn ghost" href="https://cal.com/rebuildanswers/20min">Book 20 minutes</a>
+    <span class="btn-note">No form. Straight to a person.</span>
+  </div>
+
+  <div class="read">
+    <div class="read-head">
+      <span class="dot live"></span>
+      <span>share-of-answer read</span>
+      <span class="tag">worked example</span>
+    </div>
+    <div class="read-body">
+
+      <dl class="result">
+        <dt>Presence</dt>
+        <dd>
+          <div class="frac">2 <small>of 3 runs</small></div>
+          <div class="reading">
+            You appear, but not reliably. A brand at 2/3 is in the answer on luck as much as
+            merit — small changes on either side will move it.
+          </div>
+        </dd>
+
+        <dt>Named<br>instead</dt>
+        <dd>
+          <ul class="rivals">
+            <li><span class="n">9/12</span><span class="who">Acme Suite</span>
+                <span class="meter"><i style="width:75%"></i></span></li>
+            <li><span class="n">6/12</span><span class="who">Dropline</span>
+                <span class="meter"><i style="width:50%"></i></span></li>
+            <li><span class="n">4/12</span><span class="who">You</span>
+                <span class="meter you"><i style="width:33%"></i></span></li>
+            <li><span class="n">2/12</span><span class="who">Corvid</span>
+                <span class="meter"><i style="width:17%"></i></span></li>
+          </ul>
+        </dd>
+
+        <dt>Sources<br>cited</dt>
+        <dd>
+          <ul class="hosts">
+            <li>g2.com</li><li>reddit.com</li><li>acmesuite.com</li>
+            <li>capterra.com</li><li>youtube.com</li>
+            <li class="hit">yourdomain.com &nbsp;1/12</li>
+          </ul>
+          <div class="reading">
+            Six domains carry most of these answers. Your own site is one of twelve citations.
+            The engines are describing you using someone else's page.
+          </div>
+        </dd>
+
+        <dt>What it<br>said</dt>
+        <dd>
+          <blockquote class="said">
+            “For a three-person team, this is usually more than you need. Acme Suite's starter
+            plan covers the same ground at a lower entry point.”
+            <cite>verbatim · prompt p001 · 2 of 3 runs · claude-opus-5 + web search · 20 Aug 2026</cite>
+          </blockquote>
+        </dd>
+      </dl>
+
+      <p style="font-size:.8rem;color:var(--ink-3);margin:1.5rem 0 0;font-family:var(--mono)">
+        Sample uses a worked example, not a real company. Live reads run 3× per prompt against
+        one named engine.
+      </p>
+
+    </div>
+  </div>
+</div>
+
+<div class="outcome">
+  <div class="wrap">
+   <div class="narrow">
+    <p class="eyebrow">Why this matters to you</p>
+    <h2>The deals you lose here, you never see</h2>
+    <p class="lede" style="margin-bottom:.5rem">
+      A buyer asks an AI which company to use. It names three. If you're not one of them,
+      nothing appears in your analytics — no visit, no bounce, no referrer. The deal was
+      decided before you knew it existed.
+    </p>
+   </div>
+
+    <div class="stakes">
+      <div class="stake">
+        <span class="q">Who should I hire for this?</span>
+        <h3>Somebody gets named. Is it you?</h3>
+        <p>Right now you almost certainly don't know. Nobody does, until they ask — which
+        takes about four minutes and nobody does it either.</p>
+      </div>
+      <div class="stake">
+        <span class="q">Is it worth the money for a team my size?</span>
+        <h3>The model answers on your behalf</h3>
+        <p>From whatever it can find. An old price, a 2023 forum complaint, a competitor's
+        comparison page. It answers with total confidence either way.</p>
+      </div>
+      <div class="stake">
+        <span class="q">What are the downsides?</span>
+        <h3>This one costs the most</h3>
+        <p>It's where models repeat things that aren't true any more — a discontinued product,
+        a price you raised, a limitation you fixed last year.</p>
+      </div>
+    </div>
+
+   <div class="narrow">
+    <p style="margin-top:2rem">
+      None of that shows up in a ranking report, because none of it is a ranking. The only way
+      to find out is to ask the engines directly and write down what they say. That's the
+      whole job.
+    </p>
+   </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap narrow">
+    <p class="eyebrow">The gap</p>
+    <h2>A perfect score and nobody can find you</h2>
+    <p class="lede" style="margin-bottom:1.6rem">
+      The best open-source AI-search auditor is about 8,500 lines and genuinely good. Its
+      citability engine is regex: it rewards passages that open with “X is a…”, land between
+      134 and 167 words, and keep pronoun density low.
+    </p>
+    <p>
+      That's a reasonable model of what a language model finds quotable. It is not evidence
+      that a language model quoted you. Nowhere in that codebase — or any competing product we
+      have taken apart — does anything ask an engine a question and check whether the client
+      appeared in the answer.
+    </p>
+    <p>
+      So you get numbers that feel like measurement. A page can score 94 and be invisible. A
+      page with broken schema can own the answer because one well-liked forum comment from 2024
+      keeps getting retrieved. You will not predict either from a page audit. You have to look.
+    </p>
+
+    <div class="cols" style="margin-top:2.5rem">
+      <div class="card">
+        <span class="kicker">Proxy</span>
+        <h3>“Your citability score is 78/100.”</h3>
+        <p>Derived from your markup. Moves when you edit a heading. Has never been compared
+        against a single real answer.</p>
+      </div>
+      <div class="card">
+        <span class="kicker">Evidence</span>
+        <h3>“You appear in 2 of 3 runs. Acme wins 9 of 12.”</h3>
+        <p>Derived from asking. Comes with the verbatim answer, the sources cited, and the
+        prompt that produced it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="narrow">
+      <p class="eyebrow">Method</p>
+      <h2>We publish the arithmetic, including the parts that hurt</h2>
+      <p class="lede" style="margin-bottom:2rem">
+        Answer Layer — the tooling we run engagements on — is open source, MIT, on GitHub. So is
+        the scoring methodology. You can read exactly how every number is produced before you
+        pay us anything.
+      </p>
+    </div>
+
+    <div class="scroll">
+      <table class="vs">
+        <thead>
+          <tr><th>We publish</th><th>What it admits</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Share of answer is share of <em>your prompt set</em></td>
+            <td>Whoever picks the prompts picks the number. So the set is frozen and versioned
+                for the whole engagement, and every report states which version produced it.</td>
+          </tr>
+          <tr>
+            <td>We query one named engine</td>
+            <td>Not “AI search.” Source-layer findings travel between engines; position and
+                phrasing don't. We say which engine, every time.</td>
+          </tr>
+          <tr>
+            <td>Presence is a fraction, never a tick</td>
+            <td>These systems are non-deterministic. One run is close to worthless. Three runs
+                gives you 3/3 versus 1/3 — and 1/3 is the cheapest thing on your list to fix.</td>
+          </tr>
+          <tr>
+            <td>We don't model prompt volume</td>
+            <td>Nobody observes it directly. Ahrefs and Semrush model it from search demand at
+                real scale — a legitimate method we can't match. We build prompt sets from your
+                sales calls and support tickets and cite evidence you can go and verify.
+                Different instrument, not a better one.</td>
+          </tr>
+          <tr>
+            <td>Off-site work takes 3–6 months</td>
+            <td>Said at kickoff, not in month four. Month one moves what you already control.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <p class="eyebrow">What we won't do</p>
+    <h2>The refusals, in public</h2>
+    <p style="margin-bottom:1.8rem">
+      Off-site mentions correlate roughly 3× more strongly with AI visibility than backlinks do,
+      which has produced a lot of quiet astroturfing. Ours is written down so you can hold us
+      to it.
+    </p>
+    <ul class="no">
+      <li><b>No fake accounts, no sockpuppets, no paid posts dressed as organic.</b>
+        Bans propagate, platforms flag the pattern, and a burned community is permanent.</li>
+      <li><b>No bought reviews.</b> Asking every customer at a natural moment is legitimate and
+        most companies simply never do it. Selecting only the happy ones is where it turns.</li>
+      <li><b>No burying a true complaint.</b> If the models say onboarding is confusing because
+        onboarding is confusing, that's product feedback that arrived through a language model.
+        You get it as feedback, not as a campaign.</li>
+      <li><b>No chasing prompts you can't win.</b> When the honest answer is that a competitor
+        serves that buyer better, we say so and spend the hour somewhere it pays.</li>
+      <li><b>No reshuffling the prompt set to make the line go up.</b> That's a scam with extra
+        steps, and you'd eventually work it out.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="narrow">
+      <p class="eyebrow">Pricing</p>
+      <h2>What it costs, as a number</h2>
+      <p style="margin-bottom:2rem">
+        Public because our own audit tool marks a site down when an agent can't retrieve a
+        price — and because models invent prices they can't find. A GEO agency hiding behind
+        “contact us” fails its own methodology. Prices as of August 2026, also available at
+        <code style="font-family:var(--mono);font-size:.85em">/pricing.json</code>.
+      </p>
+    </div>
+
+    <div class="price">
+      <div class="tier">
+        <span class="kicker">One-off</span>
+        <h3>The read</h3>
+        <div class="amt">$2,400</div>
+        <div class="per">once · ~2 weeks</div>
+        <ul>
+          <li>30–40 prompt universe, built from your sales and support language</li>
+          <li>Full probe, 3 runs per prompt, verbatim answers</li>
+          <li>Share of answer against named competitors</li>
+          <li>Citation cartel and what you're missing from it</li>
+          <li>Misinformation report — what the models get wrong, traced to source</li>
+        </ul>
+      </div>
+      <div class="tier mid">
+        <span class="kicker">Retainer</span>
+        <h3>Read and fix</h3>
+        <div class="amt">$5,800</div>
+        <div class="per">per month · 6-month minimum</div>
+        <ul>
+          <li>Everything in the read, re-run monthly against a frozen set</li>
+          <li>8–12 pieces of replacement copy per month, paste-ready</li>
+          <li>Schema and machine-readable facts shipped with it</li>
+          <li>90-day earned-presence plan and execution</li>
+          <li>Monthly diff: what moved, what caused it, what we got wrong</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <span class="kicker">Technical</span>
+        <h3>Agent surface</h3>
+        <div class="amt">$3,200</div>
+        <div class="per">once · ~2 weeks</div>
+        <ul>
+          <li>Can an AI agent read, parse, and transact with your site — scored</li>
+          <li>JS-dependency diff, machine-readable facts, service discovery</li>
+          <li>Task-path walkthrough: where an agent gets stuck, by step</li>
+          <li>Your current crawler policy, translated, with the question: did you mean this?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="narrow">
+      <div class="reversal">
+        <h3>Nobody starts on the retainer</h3>
+        <p>
+          The read comes first, every time, and it is deliberately a one-off. You get the
+          prompt set, the verbatim answers, the competitor breakdown and the misinformation
+          report — and then you decide, with real data in front of you, whether the monthly
+          work is worth it.
+        </p>
+        <p>
+          If the read comes back and you're already winning your prompt set, we'll tell you
+          that and you should not hire us. It happens. It's a better outcome than a retainer
+          you quietly resent.
+        </p>
+        <p class="small">
+          The six-month minimum applies to the retainer only, and it exists for one reason:
+          off-site work takes three to six months to show up in answers. A three-month
+          retainer would end right before the part you paid for starts working. We'd rather
+          say that up front than bill you for a quarter and shrug.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <p class="eyebrow">Our own numbers</p>
+    <h2>This page, scored by our own tool</h2>
+    <div class="score-line">
+      <b>91</b><span>/ 100 agent surface · measured 21 Sep 2026</span>
+    </div>
+    <p>
+      Published with the failures in it, because a GEO agency that won't run its own audit in
+      public is asking you to take the one thing on trust that it sells.
+    </p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Check</th><th>Score</th><th>Finding</th></tr></thead>
+        <tbody>
+          <tr><td>Content without JS</td><td class="num">27/30</td><td>1029 words in the raw HTML; looks server-rendered</td></tr>
+          <tr><td>Machine-readable facts</td><td class="num">20/20</td><td>price and entity facts are machine-readable</td></tr>
+          <tr><td>llms.txt quality</td><td class="num">11/15</td><td>present; has orienting prose; states what it is NOT — cheapest anti-conflation move there is; links 1 machine-readable resources</td></tr>
+          <tr><td>Service discovery</td><td class="num">n/a</td><td>not an API-first site — omitted and remaining components rescaled</td></tr>
+          <tr><td>Crawler policy</td><td class="num">10/10</td><td>retrieval bots allowed; Content-Signal declared: {&#x27;ai-train&#x27;: &#x27;yes&#x27;, &#x27;search&#x27;: &#x27;yes&#x27;, &#x27;ai-retrieval&#x27;: &#x27;yes&#x27;}</td></tr>
+          <tr><td>Markdown negotiation (bonus)</td><td class="num">0/0</td><td>standard HTML (no content-type)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.86rem;color:var(--ink-3);margin-top:1.25rem">
+      Run it yourself:
+      <code style="font-family:var(--mono)">python surface_check.py https://rebuildanswers.com</code>
+    </p>
+  </div>
+</section>
+
+<section style="border-bottom:0">
+  <div class="wrap narrow" style="text-align:left">
+    <p class="eyebrow">Next step</p>
+    <h2>Find out what they're saying</h2>
+    <p class="lede" style="margin-bottom:0">
+      Send us your domain and the two or three competitors that actually matter. We'll come
+      back with what we find — and if it isn't worth a paid engagement, we'll say that instead
+      of selling you one.
+    </p>
+    <div class="btn-row">
+      <a class="btn" href="mailto:hello@rebuildanswers.com?subject=Read%20request&amp;body=Domain%3A%20%0ACompetitors%20that%20matter%3A%20%0AWhat%20we%20sell%2C%20in%20a%20sentence%3A%20%0A">Get a read on your site</a>
+      <a class="btn ghost" href="https://cal.com/rebuildanswers/20min">Book 20 minutes</a>
+    </div>
+    <p class="mono-sm" style="margin-top:1.4rem">
+      hello@rebuildanswers.com · Florida
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap narrow">
+    <p>
+      Rebuild Answers · Florida · <a href="mailto:hello@rebuildanswers.com">hello@rebuildanswers.com</a><br>
+      Tooling: <a href="https://github.com/rebuildanswers/answer-layer">Answer Layer</a>, MIT.
+      Method: <a href="method.html">how every number is built</a>.<br>
+      <a href="answer-index.html">Answer Index</a> ·
+      <a href="work.html">How we work</a> ·
+      <a href="pricing.html">Pricing</a>
+    </p>
+    <p class="byline">
+      Written by the people who do the work. Page last measured 21 Sep 2026.
+      No JavaScript is required to read anything on this page — that's 30 of the 100 points and
+      most sites lose it.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

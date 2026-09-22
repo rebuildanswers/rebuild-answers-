@@ -1,0 +1,61 @@
+{
+  "_comment": "Trimmed 8-prompt sample. A real set is 25-40. Frozen for the engagement — see SKILL.md.",
+  "domain": "example.com",
+  "built": "2026-08-20",
+  "version": 1,
+
+  "buyer_situations": [
+    "Ops lead at a 30-60 person agency who just lost the one person who understood the spreadsheet.",
+    "Founder of a 3-person studio evaluating whether tooling this heavy is premature.",
+    "IT manager replacing a tool that was just acquired and repriced."
+  ],
+
+  "prompts": [
+    {"id": "p001", "text": "is example worth it for a three person team", "bucket": "objection",
+     "commercial_value": 5, "winnability": 4, "priority": 20,
+     "evidence": "6 r/smallbusiness threads in 5 months, near-identical phrasing; 2 G2 reviews open this way",
+     "source": "reddit", "note": "nobody has written this page. neither has Acme."},
+
+    {"id": "p002", "text": "example vs acme suite for a 40 person agency", "bucket": "head_to_head",
+     "commercial_value": 5, "winnability": 3, "priority": 15,
+     "evidence": "named in 4 lost-deal notes provided by client sales",
+     "source": "sales notes", "note": "acme owns this today via their own comparison page"},
+
+    {"id": "p003", "text": "how do i stop my team doing the same task twice", "bucket": "problem_aware",
+     "commercial_value": 2, "winnability": 5, "priority": 10,
+     "evidence": "recurring phrasing across r/agency, r/smallbusiness; nothing authoritative answers it",
+     "source": "reddit", "note": "top of funnel. compounds. currently answered by generic listicles."},
+
+    {"id": "p004", "text": "best workflow tools for creative agencies 2026", "bucket": "category",
+     "commercial_value": 3, "winnability": 3, "priority": 9,
+     "evidence": "high-volume category prompt; every competitor targets it",
+     "source": "PAA", "note": "contested. cartel-dominated."},
+
+    {"id": "p005", "text": "does example have a free tier", "bucket": "objection",
+     "commercial_value": 4, "winnability": 5, "priority": 20,
+     "evidence": "support ticket export: 31 tickets in 6 months",
+     "source": "support", "note": "answer is on the pricing page but not as a sentence. hallucination risk."},
+
+    {"id": "p006", "text": "how do i bulk import customers into example", "bucket": "in_use",
+     "commercial_value": 1, "winnability": 5, "priority": 5,
+     "evidence": "second-highest support ticket volume",
+     "source": "support", "note": "churn surface, not marketing. docs invisible to engines."},
+
+    {"id": "p007", "text": "is example overkill for a solo freelancer", "bucket": "objection",
+     "commercial_value": 3, "winnability": 5, "priority": 15,
+     "evidence": "phrasing lifted verbatim from 3 Reddit titles",
+     "source": "reddit", "note": "honest answer is 'probably yes' — say so. builds the trust that wins p001."},
+
+    {"id": "p008", "text": "what happened to example lite", "bucket": "in_use",
+     "commercial_value": 2, "winnability": 5, "priority": 10,
+     "evidence": "product sunset Nov 2024; nothing on-site says so",
+     "source": "truth.json gap", "note": "models still describe Lite as available. see hallucination-watch."}
+  ],
+
+  "cut": [
+    {"text": "workflow software", "why": "keyword, not a prompt. no situation in it."},
+    {"text": "example crm features", "why": "false premise — not a CRM. answering it validates the conflation."},
+    {"text": "is example hipaa compliant", "why": "fortified + we don't have the authority to claim it. legal reviews this or we skip it."},
+    {"text": "example alternatives", "why": "winnability 1. the honest answer lists competitors; writing it helps them."}
+  ]
+}

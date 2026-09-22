@@ -1,0 +1,10 @@
+# Retrieval bots are welcome — being in answers is the entire business.
+# Training is a separate decision from retrieval, and we say so explicitly below
+# rather than letting a WAF default decide it for us.
+
+User-agent: *
+Allow: /
+
+Content-Signal: ai-train=yes, search=yes, ai-retrieval=yes
+
+Sitemap: https://rebuildanswers.com/sitemap.xml

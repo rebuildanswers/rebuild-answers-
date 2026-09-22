@@ -1,0 +1,27 @@
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# macos
+.DS_Store
+
+# generated bundle — rebuilt on demand, 172K of base64 in a diff is noise
+answer-layer-install.sh
+
+# probe output: real harvests may contain client data. Publish deliberately,
+# by moving a file into site/, never by forgetting to ignore it.
+answer-layer/out/**/harvest*.json
+
+# ---- NOT for the public repo -------------------------------------------
+# This repo is public: the site links to it 15x and calls it MIT open source.
+# Anything committed is world-readable. These two are internal.
+
+# Positioning strategy, competitive reasoning, and the literal sales script
+# ("why a client hires us over the free tool"). Keep locally, don't publish.
+docs/CONCEPT.md
+
+# Pre-launch working notes for the Rebuild competitive baseline, including a
+# blunt internal critique of the brand name. example.com/ stays — it's
+# fictional and serves as documentation.
+answer-layer/out/rebuild/

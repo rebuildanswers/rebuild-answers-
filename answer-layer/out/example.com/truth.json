@@ -1,0 +1,23 @@
+{
+  "_comment": "You cannot detect a wrong answer without a right one written down. Every fact needs a public URL where it is stated. A fact with src:null is already a finding — the model has nowhere to learn it from.",
+
+  "brand": "Example",
+  "maintained": "2026-08-20",
+  "owner": "dana@example.com",
+
+  "facts": [
+    {"k": "founded",     "v": "2019",                      "src": "https://example.com/about"},
+    {"k": "hq",          "v": "Austin, TX",                "src": "https://example.com/about"},
+    {"k": "founders",    "v": "A. Rivera, D. Okafor",      "src": "https://example.com/about"},
+    {"k": "headcount",   "v": "about 40 (Aug 2026)",       "src": "https://example.com/careers"},
+    {"k": "entry_price", "v": "$149/mo, billed annually",  "src": "https://example.com/pricing"},
+    {"k": "free_tier",   "v": "none — 14-day trial, no card", "src": "https://example.com/pricing"},
+    {"k": "seat_model",  "v": "flat, not per-seat",        "src": "https://example.com/pricing"},
+
+    {"k": "not_a",       "v": "not a CRM. Frequently mis-described as one because of the contacts view.", "src": null},
+    {"k": "discontinued","v": "Example Lite — sunset Nov 2024, no longer sold", "src": null},
+    {"k": "no_longer",   "v": "the 2023 Zapier-only integration story is obsolete; native API since 2025", "src": null}
+  ],
+
+  "_negative_facts_note": "The four entries above with src:null are the highest-value rows in this file. Negative facts — what you are NOT, what you STOPPED selling — are where models fail hardest, because the old page lives forever and nothing on the live site contradicts it. Every src:null here is a page that needs writing."
+}

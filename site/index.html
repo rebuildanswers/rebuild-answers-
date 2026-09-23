@@ -27,11 +27,11 @@
   "address":{"@type":"PostalAddress","addressRegion":"FL","addressCountry":"US"},
   "sameAs":["https://github.com/rebuildanswers/rebuild-answers-"]},
  {"@type":"Service","name":"The read","provider":{"@id":"https://rebuildanswers.com/#org"},
-  "offers":{"@type":"Offer","price":"2400","priceCurrency":"USD","availability":"https://schema.org/InStock"}},
+  "offers":{"@type":"Offer","price":"2000","priceCurrency":"USD","availability":"https://schema.org/InStock"}},
  {"@type":"Service","name":"Read and fix","provider":{"@id":"https://rebuildanswers.com/#org"},
-  "offers":{"@type":"Offer","price":"5800","priceCurrency":"USD","availability":"https://schema.org/InStock"}},
+  "offers":{"@type":"Offer","price":"5000","priceCurrency":"USD","availability":"https://schema.org/InStock"}},
  {"@type":"Service","name":"Agent surface","provider":{"@id":"https://rebuildanswers.com/#org"},
-  "offers":{"@type":"Offer","price":"3200","priceCurrency":"USD","availability":"https://schema.org/InStock"}}
+  "offers":{"@type":"Offer","price":"2500","priceCurrency":"USD","availability":"https://schema.org/InStock"}}
 ]}
 </script>
 
@@ -40,11 +40,11 @@
 <body>
 
 <!-- ===================================================================
-     TWO PLACEHOLDERS TO SWAP BEFORE LAUNCH. Both repeat on every page.
-       1. BOOKING URL   — every "Book a call"/"Book 20 minutes" href.
-                          Currently a cal.com path that does NOT exist yet.
-       2. hello@rebuildanswers.com — must be a mailbox that actually receives mail.
-     The mailto CTAs work the moment #2 is real; #1 needs an account.
+     ONE PLACEHOLDER LEFT TO SWAP BEFORE LAUNCH. Repeats on every page.
+       hello@rebuildanswers.com — must be a mailbox that actually receives mail.
+     "Book a call"/"Book 20 minutes" now link to book.html, a request page
+     that needs no calendar account, instead of a cal.com URL that never
+     existed. Add a real scheduler there later if one goes live.
      To change the brand name or domain everywhere, run ./rename.sh
      =================================================================== -->
 <header>
@@ -57,7 +57,7 @@
       <a href="pricing.html">Pricing</a>
       <a href="https://github.com/rebuildanswers/rebuild-answers-">Source</a>
     </nav>
-    <a class="btn sm" href="https://cal.com/rebuildanswers/20min">Book a call</a>
+    <a class="btn sm" href="book.html">Book a call</a>
   </div>
 </header>
 
@@ -75,7 +75,7 @@
 
   <div class="btn-row">
     <a class="btn" href="mailto:hello@rebuildanswers.com?subject=Read%20request&amp;body=Domain%3A%20%0ACompetitors%20that%20matter%3A%20%0AWhat%20we%20sell%2C%20in%20a%20sentence%3A%20%0A">Get a read on your site</a>
-    <a class="btn ghost" href="https://cal.com/rebuildanswers/20min">Book 20 minutes</a>
+    <a class="btn ghost" href="book.html">Book 20 minutes</a>
     <span class="btn-note">No form. Straight to a person.</span>
   </div>
 
@@ -307,7 +307,7 @@
       <p style="margin-bottom:2rem">
         Public because our own audit tool marks a site down when an agent can't retrieve a
         price — and because models invent prices they can't find. A GEO agency hiding behind
-        “contact us” fails its own methodology. Prices as of August 2026, also available at
+        “contact us” fails its own methodology. Prices as of September 2026, also available at
         <code style="font-family:var(--mono);font-size:.85em">/pricing.json</code>.
       </p>
     </div>
@@ -316,7 +316,7 @@
       <div class="tier">
         <span class="kicker">One-off</span>
         <h3>The read</h3>
-        <div class="amt">$2,400</div>
+        <div class="amt">$2,000</div>
         <div class="per">once · ~2 weeks</div>
         <ul>
           <li>30–40 prompt universe, built from your sales and support language</li>
@@ -329,7 +329,7 @@
       <div class="tier mid">
         <span class="kicker">Retainer</span>
         <h3>Read and fix</h3>
-        <div class="amt">$5,800</div>
+        <div class="amt">$5,000</div>
         <div class="per">per month · 6-month minimum</div>
         <ul>
           <li>Everything in the read, re-run monthly against a frozen set</li>
@@ -342,7 +342,7 @@
       <div class="tier">
         <span class="kicker">Technical</span>
         <h3>Agent surface</h3>
-        <div class="amt">$3,200</div>
+        <div class="amt">$2,500</div>
         <div class="per">once · ~2 weeks</div>
         <ul>
           <li>Can an AI agent read, parse, and transact with your site — scored</li>
@@ -420,7 +420,7 @@
     </p>
     <div class="btn-row">
       <a class="btn" href="mailto:hello@rebuildanswers.com?subject=Read%20request&amp;body=Domain%3A%20%0ACompetitors%20that%20matter%3A%20%0AWhat%20we%20sell%2C%20in%20a%20sentence%3A%20%0A">Get a read on your site</a>
-      <a class="btn ghost" href="https://cal.com/rebuildanswers/20min">Book 20 minutes</a>
+      <a class="btn ghost" href="book.html">Book 20 minutes</a>
     </div>
     <p class="mono-sm" style="margin-top:1.4rem">
       hello@rebuildanswers.com · Florida

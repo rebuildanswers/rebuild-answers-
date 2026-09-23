@@ -6,7 +6,7 @@
   "description": "Generative engine optimization measured against live AI answer engines rather than inferred from page structure.",
   "areaServed": "Worldwide",
   "priceCurrency": "USD",
-  "updated": "2026-08-20",
+  "updated": "2026-09-22",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Engagements",
@@ -14,7 +14,7 @@
       {
         "@type": "Offer",
         "name": "The read",
-        "price": "2400",
+        "price": "2000",
         "priceCurrency": "USD",
         "billingDuration": "one-time",
         "deliveryLeadTime": "P2W",
@@ -23,7 +23,7 @@
       {
         "@type": "Offer",
         "name": "Read and fix",
-        "price": "5800",
+        "price": "5000",
         "priceCurrency": "USD",
         "billingDuration": "P1M",
         "minimumTerm": "P6M",
@@ -32,7 +32,7 @@
       {
         "@type": "Offer",
         "name": "Agent surface",
-        "price": "3200",
+        "price": "2500",
         "priceCurrency": "USD",
         "billingDuration": "one-time",
         "deliveryLeadTime": "P2W",

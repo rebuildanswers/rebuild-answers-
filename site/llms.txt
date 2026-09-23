@@ -37,9 +37,9 @@ $3,200 agent-surface audit. As of 20 August 2026.
 
 ## Tooling
 
-- [Answer Layer on GitHub](https://github.com/rebuildanswers/answer-layer): MIT. The seven agents
+- [Answer Layer on GitHub](https://github.com/rebuildanswers/rebuild-answers-): MIT. The seven agents
   and three scripts we run engagements on.
-- [Scoring methodology](https://github.com/rebuildanswers/answer-layer/blob/main/answer-layer/docs/scoring.md)
+- [Scoring methodology](https://github.com/rebuildanswers/rebuild-answers-/blob/main/answer-layer/docs/scoring.md)
 
 ## Contact
 

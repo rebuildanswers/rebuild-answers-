@@ -110,6 +110,10 @@ def brand_regex(identity: dict) -> re.Pattern:
     return re.compile(rf"(?<!\w)(?:{alt})(?!\w)", re.IGNORECASE)
 
 
+class Refused(Exception):
+    """The engine declined the question. A result, not a crash -- but never an answer."""
+
+
 def ask(client: anthropic.Anthropic, prompt: str) -> dict:
     """
     Pass 1. One question, web search on, answer + sources returned.
@@ -120,8 +124,12 @@ def ask(client: anthropic.Anthropic, prompt: str) -> dict:
     """
     messages: list[dict] = [{"role": "user", "content": prompt}]
     tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 8}]
+    # Blocks from every segment of a paused turn. The docs don't pin down whether a
+    # resumed response repeats earlier blocks or carries only the continuation, so keep
+    # all of them and dedupe on exact value below -- correct under either behavior.
+    blocks: list[Any] = []
 
-    for _ in range(5):  # cap resumes; a turn that won't finish is a finding of its own
+    for resumes in range(5):  # cap resumes; a turn that won't finish is a finding of its own
         response = client.messages.create(
             model=ANSWER_MODEL,
             max_tokens=8000,
@@ -129,6 +137,7 @@ def ask(client: anthropic.Anthropic, prompt: str) -> dict:
             tools=tools,
             messages=messages,
         )
+        blocks.extend(response.content)
         if response.stop_reason != "pause_turn":
             break
         messages = [
@@ -138,12 +147,20 @@ def ask(client: anthropic.Anthropic, prompt: str) -> dict:
     else:
         raise RuntimeError("turn still paused after 5 resumes")
 
+    # A declined request is HTTP 200 with empty or partial content. Recorded as an answer
+    # it would read as "brand absent" -- a fake zero. No fallback model either: that would
+    # silently change the engine mid-harvest, and the engine is part of the number.
+    if response.stop_reason == "refusal":
+        category = getattr(response.stop_details, "category", None)
+        raise Refused(category or "uncategorized")
+
     text_parts: list[str] = []
     cited: list[str] = []
 
-    for block in response.content:
+    for block in blocks:
         if block.type == "text":
-            text_parts.append(block.text)
+            if block.text not in text_parts:
+                text_parts.append(block.text)
         elif block.type == "web_search_tool_result":
             # Server-tool errors come back HTTP 200 with content as a single error
             # object rather than a list. Branch before indexing or this raises on a
@@ -152,13 +169,14 @@ def ask(client: anthropic.Anthropic, prompt: str) -> dict:
             if isinstance(content, list):
                 for result in content:
                     url = getattr(result, "url", None)
-                    if url:
+                    if url and url not in cited:
                         cited.append(url)
 
     return {
         "text": "\n".join(text_parts).strip(),
         "cited_urls": cited,
         "stop_reason": response.stop_reason,
+        "resumes": resumes,
     }
 
 
@@ -218,6 +236,11 @@ def run(args: argparse.Namespace) -> None:
                                 "error": f"{exc.status_code}"})
                 time.sleep(5)
                 continue
+            except Refused as exc:
+                print(f"    refused ({exc}) — recorded as error, not as absence", file=sys.stderr)
+                records.append({"prompt_id": prompt["id"], "run": run_index,
+                                "error": f"refusal:{exc}"})
+                continue
 
             hosts = [registrable(u) for u in answer["cited_urls"]]
 
@@ -245,6 +268,8 @@ def run(args: argparse.Namespace) -> None:
                 "bucket": prompt.get("bucket"),
                 "priority": prompt.get("priority"),
                 "run": run_index,
+                "stop_reason": answer["stop_reason"],
+                "resumes": answer["resumes"],
                 "answer_text": answer["text"],          # verbatim. always. you diff this later.
                 "cited_urls": answer["cited_urls"],
                 "cited_hosts": sorted(set(h for h in hosts if h)),

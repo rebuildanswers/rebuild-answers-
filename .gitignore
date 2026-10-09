@@ -28,3 +28,7 @@ answer-layer/out/rebuild/
 
 # Outreach: lead data (third-party contact info) and the sales sequence. Private, never public.
 outreach/
+
+# The RebuildAnswers automation platform (Next.js app + planning docs, incl. pricing,
+# sales process and outreach strategy). Private: becomes its own private repo.
+platform/

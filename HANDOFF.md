@@ -1,5 +1,11 @@
 # Handoff brief
 
+> **Note (2026-10-10):** on 2026-10-09 the agency on rebuildanswers.com changed from GEO /
+> AI-search visibility to business automation, and the new site and app are kept privately outside
+> this repo. This brief still describes the **Answer Layer** open-source tooling accurately. The
+> static `site/` folder and the agency-specific parts below (pricing, the "Rebuild" target, the
+> placeholders) are historical and will be replaced on the live domain at the next production deploy.
+
 Paste everything between the rules into a fresh Claude Code session started in this
 directory. It carries the full context of what this is and why each decision was made.
 
